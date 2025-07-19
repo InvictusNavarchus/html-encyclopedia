@@ -1501,6 +1501,75 @@ export const additionalHtmlElements: HTMLElement[] = [
     mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hr'
   },
   {
+    name: 'figure',
+    description: 'Represents self-contained content, potentially with an optional caption.',
+    category: 'text',
+    type: 'Block',
+    support: 'Modern',
+    isNew: true,
+    attributes: [
+      { name: 'id', description: 'Unique identifier for the element', global: true },
+      { name: 'class', description: 'CSS class names for styling', global: true },
+    ],
+    example: '<figure>\n  <img src="chart.png" alt="Sales Chart">\n  <figcaption>Q4 Sales Performance</figcaption>\n</figure>',
+    exampleOutput: '<figure style="margin: 20px 0; text-align: center;"><img src="https://via.placeholder.com/300x200" alt="Sales Chart" style="max-width: 100%;"><figcaption style="margin-top: 10px; font-style: italic; color: #666;">Q4 Sales Performance</figcaption></figure>',
+    useCases: [
+      'Images with captions',
+      'Code examples',
+      'Diagrams',
+      'Illustrations',
+      'Self-contained content'
+    ],
+    notes: 'The figure, its caption, and its contents are referenced as a single unit.',
+    mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure'
+  },
+  {
+    name: 'figcaption',
+    description: 'Represents a caption or legend describing the rest of the contents of its parent figure element.',
+    category: 'text',
+    type: 'Block',
+    support: 'Modern',
+    isNew: true,
+    attributes: [
+      { name: 'id', description: 'Unique identifier for the element', global: true },
+      { name: 'class', description: 'CSS class names for styling', global: true },
+    ],
+    example: '<figcaption>Figure 1: System Architecture</figcaption>',
+    exampleOutput: '<p>Used inside figure elements - see figure example above</p>',
+    useCases: [
+      'Image captions',
+      'Chart descriptions',
+      'Diagram labels',
+      'Content attribution',
+      'Figure explanations'
+    ],
+    notes: 'Must be used within a figure element. Can be placed before or after the main content.',
+    mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption'
+  },
+  {
+    name: 'menu',
+    description: 'A semantic alternative to ul, but treated by browsers as no different than ul.',
+    category: 'text',
+    type: 'Block',
+    support: 'Modern',
+    isNew: true,
+    attributes: [
+      { name: 'id', description: 'Unique identifier for the element', global: true },
+      { name: 'class', description: 'CSS class names for styling', global: true },
+    ],
+    example: '<menu>\n  <li><button>New File</button></li>\n  <li><button>Open</button></li>\n  <li><button>Save</button></li>\n</menu>',
+    exampleOutput: '<menu style="list-style: none; padding: 0; margin: 0;"><li style="margin: 5px 0;"><button style="padding: 8px 12px; border: 1px solid #ccc; background: #f5f5f5;">New File</button></li><li style="margin: 5px 0;"><button style="padding: 8px 12px; border: 1px solid #ccc; background: #f5f5f5;">Open</button></li><li style="margin: 5px 0;"><button style="padding: 8px 12px; border: 1px solid #ccc; background: #f5f5f5;">Save</button></li></menu>',
+    useCases: [
+      'Context menus',
+      'Toolbar buttons',
+      'Action lists',
+      'Command menus',
+      'Interactive lists'
+    ],
+    notes: 'Represents an unordered list of items with interactive commands.',
+    mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/HTML/Element/menu'
+  },
+  {
     name: 'details',
     description: 'Creates a disclosure widget with hideable content.',
     category: 'interactive',
@@ -1850,6 +1919,107 @@ export const additionalHtmlElements: HTMLElement[] = [
     notes: 'Can contain col elements or use span attribute. Must come before table content.',
     mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup'
   },
+  // SVG and MathML Elements
+  {
+    name: 'svg',
+    description: 'Container defining a new coordinate system and viewport for SVG graphics.',
+    category: 'media',
+    type: 'Block',
+    support: 'Modern',
+    isNew: true,
+    attributes: [
+      { name: 'width', description: 'Width of the SVG viewport' },
+      { name: 'height', description: 'Height of the SVG viewport' },
+      { name: 'viewBox', description: 'Defines the coordinate system' },
+      { name: 'xmlns', description: 'SVG namespace declaration' },
+      { name: 'id', description: 'Unique identifier for the element', global: true },
+      { name: 'class', description: 'CSS class names for styling', global: true },
+    ],
+    example: '<svg width="100" height="100" viewBox="0 0 100 100">\n  <circle cx="50" cy="50" r="40" fill="blue" />\n</svg>',
+    exampleOutput: '<svg width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="blue" /></svg>',
+    useCases: [
+      'Vector graphics',
+      'Icons and logos',
+      'Charts and diagrams',
+      'Scalable illustrations',
+      'Interactive graphics'
+    ],
+    notes: 'Used as the outermost element of SVG documents or to embed SVG fragments.',
+    mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/SVG/Element/svg'
+  },
+  {
+    name: 'math',
+    description: 'The top-level element in MathML for mathematical expressions.',
+    category: 'text',
+    type: 'Block',
+    support: 'Modern',
+    isNew: true,
+    attributes: [
+      { name: 'display', description: 'Display style', values: ['block', 'inline'] },
+      { name: 'xmlns', description: 'MathML namespace declaration' },
+      { name: 'id', description: 'Unique identifier for the element', global: true },
+      { name: 'class', description: 'CSS class names for styling', global: true },
+    ],
+    example: '<math>\n  <mrow>\n    <mi>x</mi>\n    <mo>=</mo>\n    <mfrac>\n      <mi>a</mi>\n      <mi>b</mi>\n    </mfrac>\n  </mrow>\n</math>',
+    exampleOutput: '<math><mrow><mi>x</mi><mo>=</mo><mfrac><mi>a</mi><mi>b</mi></mfrac></mrow></math>',
+    useCases: [
+      'Mathematical equations',
+      'Scientific formulas',
+      'Academic content',
+      'Educational materials',
+      'Technical documentation'
+    ],
+    notes: 'Every valid MathML instance must be wrapped in a math element.',
+    mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/MathML/Element/math'
+  },
+  // Experimental Elements
+  {
+    name: 'fencedframe',
+    description: 'Represents a nested browsing context with enhanced privacy features.',
+    category: 'media',
+    type: 'Block',
+    support: 'Limited',
+    isNew: true,
+    attributes: [
+      { name: 'src', description: 'URL of the content to embed' },
+      { name: 'width', description: 'Width of the frame' },
+      { name: 'height', description: 'Height of the frame' },
+      { name: 'id', description: 'Unique identifier for the element', global: true },
+      { name: 'class', description: 'CSS class names for styling', global: true },
+    ],
+    example: '<fencedframe src="https://example.com" width="400" height="300"></fencedframe>',
+    exampleOutput: '<div style="width: 400px; height: 300px; border: 1px solid #ccc; background: #f5f5f5; display: flex; align-items: center; justify-content: center;"><p>Fenced Frame Content (Experimental)</p></div>',
+    useCases: [
+      'Privacy-focused embedding',
+      'Secure third-party content',
+      'Isolated browsing contexts',
+      'Enhanced security frames'
+    ],
+    notes: 'Experimental element with built-in privacy features. Limited browser support.',
+    mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fencedframe'
+  },
+  {
+    name: 'selectedcontent',
+    description: 'Displays the content of the currently selected option inside a closed select element.',
+    category: 'forms',
+    type: 'Inline',
+    support: 'Limited',
+    isNew: true,
+    attributes: [
+      { name: 'id', description: 'Unique identifier for the element', global: true },
+      { name: 'class', description: 'CSS class names for styling', global: true },
+    ],
+    example: '<select>\n  <selectedcontent>Choose an option</selectedcontent>\n  <option>Option 1</option>\n  <option>Option 2</option>\n</select>',
+    exampleOutput: '<p>Experimental element for customizing select appearance</p>',
+    useCases: [
+      'Custom select styling',
+      'Enhanced form controls',
+      'Improved user experience',
+      'Select customization'
+    ],
+    notes: 'Experimental and non-standard element. Very limited browser support.',
+    mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/HTML/Element/selectedcontent'
+  },
   // Deprecated Elements (important for reference)
   {
     name: 'font',
@@ -2096,5 +2266,84 @@ export const additionalHtmlElements: HTMLElement[] = [
     ],
     notes: 'Use pre element instead. This element is obsolete.',
     mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/HTML/Element/xmp'
+  },
+  {
+    name: 'param',
+    description: 'Defines parameters for an object element (deprecated).',
+    category: 'deprecated',
+    type: 'Void',
+    support: 'Deprecated',
+    attributes: [
+      { name: 'name', description: 'Name of the parameter' },
+      { name: 'value', description: 'Value of the parameter' },
+      { name: 'type', description: 'MIME type of the parameter value' },
+      { name: 'valuetype', description: 'Type of the value', values: ['data', 'ref', 'object'] },
+    ],
+    example: '<object data="movie.swf">\n  <param name="quality" value="high">\n  <param name="bgcolor" value="#ffffff">\n</object>',
+    exampleOutput: '<p>Used inside object elements for plugin parameters (deprecated)</p>',
+    useCases: [
+      'Legacy code (not recommended)',
+      'Historical reference',
+      'Plugin parameters'
+    ],
+    notes: 'Use modern alternatives for multimedia content. This element is obsolete.',
+    mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/HTML/Element/param'
+  },
+  {
+    name: 'noembed',
+    description: 'Provides fallback content for browsers that don\'t support embed (deprecated).',
+    category: 'deprecated',
+    type: 'Block',
+    support: 'Deprecated',
+    attributes: [],
+    example: '<embed src="content.swf">\n<noembed>\n  <p>Your browser does not support embedded content.</p>\n</noembed>',
+    exampleOutput: '<div style="background: #ffe6e6; padding: 15px; border: 1px solid #ff9999;"><p>Your browser does not support embedded content.</p></div>',
+    useCases: [
+      'Legacy code (not recommended)',
+      'Historical reference',
+      'Embed fallback'
+    ],
+    notes: 'Use object element with fallback content instead. This element is obsolete.',
+    mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noembed'
+  },
+  {
+    name: 'rb',
+    description: 'Used to delimit the base text component of a ruby annotation (deprecated).',
+    category: 'deprecated',
+    type: 'Inline',
+    support: 'Deprecated',
+    attributes: [
+      { name: 'id', description: 'Unique identifier for the element', global: true },
+      { name: 'class', description: 'CSS class names for styling', global: true },
+    ],
+    example: '<ruby>\n  <rb>漢</rb><rt>kan</rt>\n  <rb>字</rb><rt>ji</rt>\n</ruby>',
+    exampleOutput: '<p>Used inside ruby elements for base text (deprecated)</p>',
+    useCases: [
+      'Legacy code (not recommended)',
+      'Historical reference',
+      'Ruby base text'
+    ],
+    notes: 'Use ruby element without rb wrapper. This element is obsolete.',
+    mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rb'
+  },
+  {
+    name: 'rtc',
+    description: 'Embraces semantic annotations of characters in ruby elements (deprecated).',
+    category: 'deprecated',
+    type: 'Inline',
+    support: 'Deprecated',
+    attributes: [
+      { name: 'id', description: 'Unique identifier for the element', global: true },
+      { name: 'class', description: 'CSS class names for styling', global: true },
+    ],
+    example: '<ruby>\n  <rb>東京</rb>\n  <rtc><rt>とうきょう</rt></rtc>\n  <rtc><rt>Tokyo</rt></rtc>\n</ruby>',
+    exampleOutput: '<p>Used inside ruby elements for semantic annotations (deprecated)</p>',
+    useCases: [
+      'Legacy code (not recommended)',
+      'Historical reference',
+      'Ruby semantic annotations'
+    ],
+    notes: 'Use standard ruby, rt, and rp elements instead. This element is obsolete.',
+    mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rtc'
   }
 ];

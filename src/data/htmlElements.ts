@@ -523,6 +523,28 @@ export const htmlElements: HTMLElement[] = [
     notes: 'Often used with <code> for syntax highlighting.',
     mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre'
   },
+  {
+    name: 'br',
+    description: 'Produces a line break in text (carriage-return).',
+    category: 'text',
+    type: 'Void',
+    support: 'Universal',
+    attributes: [
+      { name: 'id', description: 'Unique identifier for the element', global: true },
+      { name: 'class', description: 'CSS class names for styling', global: true },
+      { name: 'style', description: 'Inline CSS styles', global: true },
+    ],
+    example: '<p>First line<br>Second line</p>',
+    exampleOutput: '<p>First line<br>Second line</p>',
+    useCases: [
+      'Line breaks in poems',
+      'Address formatting',
+      'Breaking long text',
+      'Forced line breaks'
+    ],
+    notes: 'Use sparingly. Consider using CSS or paragraph elements for better semantic structure.',
+    mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/HTML/Element/br'
+  },
   // Media Elements
   {
     name: 'img',
